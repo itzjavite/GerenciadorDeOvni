@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDeOvni.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -90,11 +91,97 @@ namespace GerenciadorDeOvni
             }
             else
             {
-                MessageBox.Show("A nave ja está çotada de tripulantes!",
+                MessageBox.Show("A nave ja está lotada de tripulantes!",
                     "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // Atualizar as informações:
             AtualizarInformacoes();
         }
+
+        private void btnRemoverT_Click(object sender, EventArgs e)
+        {
+            if (ovni.RemoverTripulante())
+            {
+                MessageBox.Show("Tripulante removido!",
+                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Não é possível mais remover tripulantes!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Atualizar as informações:
+            AtualizarInformacoes();
+        }
+
+        private void btnAddA_Click(object sender, EventArgs e)
+        {
+            if (ovni.Abduzir())
+            {
+                MessageBox.Show("Alvo abduzido!",
+                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível abduzir o alvo!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Atualizar as informações:
+            AtualizarInformacoes();
+        }
+
+        private void btnRemoverA_Click(object sender, EventArgs e)
+        {
+            if (ovni.Desabduzir())
+            {
+                MessageBox.Show("Alvo desabduzido!",
+                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível desabduzir!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Atualizar as informações:
+            AtualizarInformacoes();
+        }
+
+        private void btnMudarPlaneta_Click(object sender, EventArgs e)
+        {
+            if (ovni.MudarPlaneta(cmbPlanetas.Text))
+            {
+                MessageBox.Show("A nave mudou de planeta!",
+                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(cmbPlanetas.Text == "Terra")
+                {
+                    pibPlanetaOrigem.Image = Properties.Resources.terraS2;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Não foi possível mudar de planeta!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Atualizar as informações:
+            AtualizarInformacoes();
+        }
+
+        private void btnRetornar_Click(object sender, EventArgs e)
+        {
+            if (ovni.RetornarAoPlanetaDeOrigem())
+            {
+                MessageBox.Show("A nave retornou ao planeta de de origem!",
+                    "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Você já está no planeta de origem!",
+                    "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            // Atualizar as informações:
+            AtualizarInformacoes();
+        }
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace GerenciadorDeOvni
         {
             InitializeComponent();
             // Adicionar os planetas no comboBox:
-            cmbPlanetas.Items.Add(BibliotecaOVNI.OVNI.PlanetasValidos);
+            cmbPlanetas.Items.AddRange(BibliotecaOVNI.OVNI.PlanetasValidos);
         }
 
         private void btnInicial_Click(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace GerenciadorDeOvni
                 BibliotecaOVNI.OVNI ovni = new BibliotecaOVNI.OVNI(maxTripulantes,maxAbduzidos,planetaOrigem);
 
                 // Instanciar a janela "gerenciador" para conseguir chama-la:
-                Gerenciador gerenciador = new Gerenciador();
+                Gerenciador gerenciador = new Gerenciador(ovni);
 
                 // Esconder a janela atual:
                 Hide();
