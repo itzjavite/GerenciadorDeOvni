@@ -91,6 +91,8 @@
             // 
             // btnInicial
             // 
+            this.btnInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicial.ForeColor = System.Drawing.Color.Firebrick;
             this.btnInicial.Location = new System.Drawing.Point(94, 159);
             this.btnInicial.Name = "btnInicial";
             this.btnInicial.Size = new System.Drawing.Size(240, 41);
